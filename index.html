@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<script scr="./require.js"></script>
-<script>
-  const logicMod = require('./logic.js');
-</script>
+
 
 <html>
 <head> 
@@ -12,6 +9,16 @@
 <body>
 ​
 
+<input 
+type="button" 
+value="设置trunk目录" 
+id="trunkButton">
+<br>
+<input 
+type="button" 
+value="设置stable目录" 
+id="stableButton">
+<br>
 <img src="sb.gif">
 ​
 <p>
@@ -22,13 +29,14 @@
     onchange="logicMod.onInputChange(this)"
   >
 </p>
-<form action="">
   <input 
     type="button" 
     value="搬运！" 
-    onclick="logicMod.onCopyClick(document.getElementById('jsonName'));" 
     id="copyButton">
-</form>
 
 </body>
+
+<script>
+  const renderMod = require('./renderer.js');
+ </script>
 </html>
