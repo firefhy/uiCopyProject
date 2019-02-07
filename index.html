@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<script scr="./require.js"></script>
+<script>
+  const logicMod = require('./logic.js');
+</script>
+
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>g58 trunk->stable 搬运工具</title> 
+</head>
+<body>
+​
+
+<img src="sb.gif">
+​
+<p>
+  <input 
+    type="text" 
+    placeholder="输入要搬运的工程名" 
+    id="jsonName"
+    onchange="logicMod.onInputChange(this)"
+  >
+</p>
+<form action="">
+  <input 
+    type="button" 
+    value="搬运！" 
+    onclick="logicMod.onCopyClick(document.getElementById('jsonName'));" 
+    id="copyButton">
+</form>
+
+</body>
+</html>
