@@ -49,7 +49,27 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.on('fhyhahahahah', (event)=>{
-  console.log("here!!!!");
-  dialog.showErrorBox("An Error ", "fhy");
+ipcMain.on('no_trunk_error', (event)=>{
+  dialog.showErrorBox("没有设置trunk目录", "冲啊！");
+})
+ipcMain.on('no_stable_error', (event)=>{
+  dialog.showErrorBox("没有设置stable目录", "冲啊！");
+})
+
+
+ipcMain.on('select-directory-trunk', (event)=>{
+  console.log('haha')
+  dialog.showOpenDialog({
+    properties: ['openDirectory']
+  }, (path) => {
+    event.sender.send('select-directory-trunk', path);
+  })
+})
+ipcMain.on('select-directory-stable', (event)=>{
+  console.log('haha')
+  dialog.showOpenDialog({
+    properties: ['openDirectory']
+  }, (path) => {
+    event.sender.send('select-directory-stable', path);
+  })
 })
