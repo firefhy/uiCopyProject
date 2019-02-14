@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+	"start": "electron .",
+	"pack": "electron-packager . copyUiTool --win --out E:/g58WorkSpace/g58/art/cocos/copyTrunkTool/  --app-version=0.0.1 --electron-version=4.0.3"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +18,16 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^4.0.3"
+    "electron-packager": "^12.1.0",
+    "electron-winstaller": "^2.2.0"
+  },
+  "dependencies": {
+    "electron": "^4.0.3",
+    "electron-log": "^2.2.14",
+    "electron-settings": "^3.0.7",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "glob": "^7.1.0",
+    "highlight.js": "^9.3.0",
+    "update-electron-app": "^1.1.1"
   }
 }

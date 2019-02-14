@@ -13,7 +13,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+//   mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -55,6 +55,9 @@ ipcMain.on('no_trunk_error', (event)=>{
 ipcMain.on('no_stable_error', (event)=>{
   dialog.showErrorBox("没有设置stable目录", "冲啊！");
 })
+ipcMain.on('no_json_error', (event)=>{
+  dialog.showErrorBox("没有找到这个json", "冲啊！");
+})
 
 
 ipcMain.on('select-directory-trunk', (event)=>{
@@ -66,10 +69,20 @@ ipcMain.on('select-directory-trunk', (event)=>{
   })
 })
 ipcMain.on('select-directory-stable', (event)=>{
-  console.log('haha')
   dialog.showOpenDialog({
     properties: ['openDirectory']
   }, (path) => {
     event.sender.send('select-directory-stable', path);
   })
 })
+
+ipcMain.on('on_copy_finish', (event)=>{
+	const options = {
+		type: 'info',
+		title: '搬运成功',
+		message: '恭喜你走上了人生的巅峰',
+		buttons: ['Yes']
+	}
+	dialog.showMessageBox(options)
+})
+  
